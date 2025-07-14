@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavneet Portfolio</title>
+  <style>
+    /* =========== RESET & BASIC STYLING ============= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      background: #f0f2f5;
+      color: #333;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* =========== LAYOUT ============= */
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem; background: #fff;
+      position: fixed; width: 100%; top: 0; z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header nav a {
+      margin-left: 1.5rem; font-weight: 500;
+      transition: color .2s;
+    }
+    header nav a:hover { color: #0077cc; }
+
+    main {
+      max-width: 960px;
+      margin: 6rem auto 2rem;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+
+    /* =========== HERO ============= */
+    #hero {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      animation: fadeIn 1s ease both;
+    }
+    #hero h1 { font-size: 2.5rem; }
+    #hero p { font-size: 1.2rem; margin-top: .5rem; color: #555; }
+
+    /* =========== ABOUT ============= */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: center;
+      opacity: 0;
+      animation: slideUp 1s ease 0.3s forwards;
+    }
+    #about img {
+      width: 100%;
+      border-radius: 8px;
+      filter: grayscale(40%);
+      transition: filter .3s;
+    }
+    #about img:hover { filter: grayscale(0); }
+
+    /* =========== SKILLS ============= */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      opacity: 0;
+      animation: slideUp 1s ease 0.6s forwards;
+    }
+    .skill {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform .2s;
+    }
+    .skill:hover { transform: translateY(-5px); }
+
+    /* =========== PROJECTS ============= */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      opacity: 0;
+      animation: slideUp 1s ease 0.9s forwards;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      transition: transform .3s;
+      cursor: pointer;
+    }
+    .project-card:hover { transform: scale(1.02); }
+    .project-card img {
+      width: 100%;
+      display: block;
+    }
+    .project-card .info {
+      padding: 1rem;
+    }
+    .project-card .info h3 { margin-bottom: .5rem; }
+    .project-card .info p {
+      color: #666;
+      font-size: .95rem;
+    }
+
+    /* =========== CONTACT ============= */
+    #contact {
+      text-align: center;
+      animation: slideUp 1s ease 1.2s forwards;
+      opacity: 0;
+    }
+    #contact a {
+      display: inline-block;
+      margin: .5rem;
+      padding: .75rem 1.5rem;
+      background: #0077cc;
+      color: white;
+      border-radius: 4px;
+      transition: background .2s;
+    }
+    #contact a:hover {
+      background: #005fa3;
+    }
+
+    /* =========== ANIMATIONS ============= */
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo"><strong>Bhavneet Singh</strong></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <h1>Hi, I’m Bhavneet</h1>
+      <p>Conversational AI designed by OpenAI — building intuitive experiences through code.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <img src="https://via.placeholder.com/300x300.png?text=Your+Image" alt="Portrait">
+      <div>
+        <h2>About Me</h2>
+        <p>I love blending language, logic, and creativity to craft interactive experiences on the web. My goal is to make information accessible, engaging, and delightful.</p>
+        <p>I'm driven by clean design, elegant code, and delightful animations.</p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills & Toolbox</h2>
+      <div class="skills-grid">
+        <div class="skill">JavaScript & ES6+</div>
+        <div class="skill">HTML5 & CSS3</div>
+        <div class="skill">React / Vue.js</div>
+        <div class="skill">CSS Animations & SVG</div>
+        <div class="skill">Node.js & Express</div>
+        <div class="skill">Accessibility & ARIA</div>
+      </div>
+    </section>
+
+    
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects">
+        <div class="project-card" onclick="openModal('proj1')">
+          <img src="https://via.placeholder.com/600x300.png?text=Project+1" alt="Project 1">
+          <div class="info">
+            <h3>Interactive Chat UI</h3>
+            <p>A React-based conversational component with typing animation and user-friendly controls.</p>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="openModal('proj2')">
+          <img src="https://via.placeholder.com/600x300.png?text=Project+2" alt="Project 2">
+          <div class="info">
+            <h3>SVG Data Visualizer</h3>
+            <p>Animated charts built with D3.js and SVG—bringing data to life with smooth transitions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <a href="mailto:you@example.com">Email Me</a>
+      <a href="https://github.com/BhavneetSingh1" target="_blank">GitHub</a>
+    </section>
+
+  </main>
+
+  <!-- MODAL (dynamically shown) -->
+  <div id="modalOverlay" style="display:none; position:fixed;top:0;left:0;width:100%;height:100%;
+       background:rgba(0,0,0,0.6);align-items:center;justify-content:center;">
+    <div id="modalContent" style="background:#fff;padding:2rem;border-radius:8px;max-width:600px;position:relative;">
+      <span style="position:absolute;top:1rem;right:1rem;cursor:pointer;font-size:1.2rem;"
+            onclick="closeModal()">✕</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+  </body>
+</html>
